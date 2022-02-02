@@ -1,0 +1,15 @@
+#+TITLE: Personal Wiki Index
+
+My private memos.
+
+** Topics related to Python
+
+- [[./python/list_comp.org][List comprehension memo]]
+- [[./python/async.org][Study on asyncio]]
+- [[./python/closure][Playing around with closures]]
+
+** Linux Hacks
+
+- [[./linux/kernel.org][Linux kernel]]
+- [[./linux/boot.org][Linux boot sequence]]
+- [[./linux/filesystems.org][Filesystems (ext4, xfs, etc.)]]
