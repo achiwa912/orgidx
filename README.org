@@ -4,7 +4,7 @@ A helper utility to generate =README.org= that has links to all your .org files 
 
 ** The idea - your private Wiki pages
 
-I think you already know that you can create one or more private repositoies in github.com for free.  Also, github.com renders *.org files nicely for preview.
+I think you already know that you can create one or more private repositories in github.com for free.  Also, github.com renders *.org files nicely for preview.
 
 If you use ~emacs~ + ~org-mode~ to write memos, articles, etc., github would be a great place to host your personal Wiki pages.  All you need is to create a private repository and push your =*.org= files to it.  You can browse =*.org= documents in a neatly formatted manner.
 
@@ -26,7 +26,7 @@ wiki +
 <snip>
 #+END_SRC 
 
-** What orgidx.py does
+** What orgidx.py will do for you
 
 Executing the script:
 : python orgidx.py <wiki_top_direcory>
@@ -68,4 +68,14 @@ The above =README.org= file will be rendered by github like [[./example.org][thi
    - If you don't, that's fine.  The names of sub-directories will be categories as is
 7. Run the script (eg, ~python orgidx.py /home/jon/wiki~)
 8. =README.org= will be generated under the top wiki directory
+
+** License
+
+orgidx.py is under [[https://en.wikipedia.org/wiki/MIT_License][MIT License]].  Please feel free to use, file a bug, give me a comment, etc.
+
+** Contact
+
+Kyosuke Achiwa - @kyos_achwan - achiwa912+gmail.com (please replace ~+~ with ~@~)
+
+Project Link: https://github.com/achiwa912/orgidx
 
