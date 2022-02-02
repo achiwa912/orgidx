@@ -6,9 +6,16 @@ A helper utility to generate =README.org= that has links to all your .org files 
 
 I think you already know that you can create one or more private repositories in github.com for free.  Also, github.com renders *.org files nicely for preview.
 
-If you use ~emacs~ + ~org-mode~ to write memos, articles, etc., github would be a great place to host your personal Wiki pages.  All you need is to create a private repository and push your =*.org= files to it.  You can browse =*.org= documents in a neatly formatted manner.
+If you use ~emacs~ + ~org-mode~ to write memos, articles, etc., github would be a great place to host your personal Wiki pages.  All you need is to create a private repository and push your =*.org= files to it.  You can browse =*.org= documents in a neatly formatted manner.  Actually, this README is an =.org= file itself.  You can see how it works.
 
-But, one important piece is missing.  Navigating those =*.org= files is clumsy.  You need to click an .org file in the file list on the ghthub UI.  I wish I had a (nicely formatted) top page that has links to =.org= files grouped by categories.  So, I created =orgidx.py=.
+But, one important piece is missing.  Navigating those =*.org= files on the github UI is clumsy.  I wish I had a (nicely formatted) top page (ie, README) that has links to =.org= files grouped by categories.  This is why, I created =orgidx.py=.
+
+** Why you should have your private Wiki on github
+
+- It is free
+- It is your private space
+- Can view/edit with multiple devices
+- github renders =.org= (, =.md=, etc.) files for you to view
 
 ** How to organize *.org files
 
