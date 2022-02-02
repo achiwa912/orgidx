@@ -1,18 +1,18 @@
 #+TITLE: orgidx.py
 
-A helper utility to generate README.org that has links to all your .org files under a folder.
+A helper utility to generate =README.org= that has links to all your .org files under a top wiki folder.
 
 ** The idea - your private Wiki pages
 
-You can create one or more private repositoies in github.com for free.  Also, github.com renders *.org files nicely for preview.
+I think you already know that you can create one or more private repositoies in github.com for free.  Also, github.com renders *.org files nicely for preview.
 
-If you use emacs + org-mode to write memos, articles, etc., github would be a great place to host your personal Wiki pages.  All you need is to create a private repository and push your *.org files to it.  You can browse *.org documents in a nicely formatted manner.
+If you use ~emacs~ + ~org-mode~ to write memos, articles, etc., github would be a great place to host your personal Wiki pages.  All you need is to create a private repository and push your =*.org= files to it.  You can browse =*.org= documents in a neatly formatted manner.
 
-But, one important piece is missing.  Navigating those *.org files is clumsy.  You need to click an .org file in the file list on the ghthub UI.  I wish I had a (nicely formatted) top page that has links to .org files grouped by categories.  So, I created orgidx.py.
+But, one important piece is missing.  Navigating those =*.org= files is clumsy.  You need to click an .org file in the file list on the ghthub UI.  I wish I had a (nicely formatted) top page that has links to =.org= files grouped by categories.  So, I created =orgidx.py=.
 
 ** How to organize *.org files
 
-First, you need to decide the top directory which contains all sub-directories and .org files.  Let's say it is =~/wiki=.  Create sub-directories under =~/wiki=, for example, =python=, =linux=, =storage= and =etc=.  The names of these sub-directories will become categories (category keys, to be exact).  And then, place your .org files under the sub-directories.
+First, you need to prepare the top directory which contains all sub-directories and =.org= files.  Let's say it is =~/wiki=.  Create sub-directories under the top directory, for example, =python=, =linux=, =storage= and =etc=.  The names of these sub-directories will become categories (category keys, to be exact).  And then, place your =.org= files under the sub-directories.
 
 You now have something like:
 #+BEGIN_SRC
@@ -28,9 +28,9 @@ wiki +
 
 ** What orgidx.py does
 
-Run the script:
+Executing the script:
 : python orgidx.py <wiki_top_direcory>
-will traverse subdirectories and .org files in them, and generate README.org file.
+will traverse sub-directories and =.org= files in them, and generate =README.org= file.
 
 If you have the above directory structure, it will be something like:
 : #+TITLE: Personal Wiki Index
@@ -50,18 +50,20 @@ If you have the above directory structure, it will be something like:
 : - [[./linux/filesystems.org][Filesystems (ext4, xfs, etc.)]]
 : <snip>
 
-The script has a dictionary (~categ_dict~) that converts category keys (ie, sub-directory names) to category text strings (eg, "python" to "Topics related to Python").
+The script has a Python dictionary (~categ_dict~) that converts category keys (ie, sub-directory names) to category text strings (eg, "python" to "Topics related to Python").
 
-It creates a link to an .org file.  The text shown for the link is derived from the title (ie, ~#+TITLE:~) meta data of the document.  (So, an .org file needs to have at least the title metadta ~#+TITLE:~)
+The script creates a link to an =.org= file.  The text shown for the link is derived from the title (ie, ~#+TITLE:~) meta data of the document.  (So, an .org file needs to have at least the title metadta ~#+TITLE:~)
 
 ** Usage
 
 1. Create the top wiki directory (eg, =/home/jon/wiki=)
 2. Create sub-directories whose names will be category keys
-3. Place .org files under the sub-directories
-4. Install python 3.9 or later
+3. Place =.org= files under the sub-directories
+   - Make sure all =.org= files have ~#+TITLE:~ meta data
+4. Install python 3.8 or later
 5. Put orgidx.py somewhere you like
-6. Edit orgidx.py and update ~categ_dict~ 
+6. Edit orgidx.py and update ~categ_dict~
+   - If you don't, that's fine.  The names of sub-directories will be categories as is
 7. Run the script (eg, ~python orgidx.py /home/jon/wiki~)
-8. README.org will be generated under the top wiki directory
+8. =README.org= will be generated under the top wiki directory
 
