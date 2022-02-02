@@ -37,9 +37,11 @@ wiki +
 
 Executing the script:
 : python orgidx.py <wiki_top_direcory>
-will traverse sub-directories and =.org= files in them, and generate =README.org= file.
+will traverse sub-directories and =.org= files in them, and generate =README.org= file.  Generating =README.org= on-the-fly means that you can add/remove/update articles, move your articless to different sub-directories, change sub-directory names(*), change the titles of your articles, and the script will reflect those updates.  How neat!
 
-If you have the above directory structure, it will be something like:
+(*) Don't forget to upate ~categ_dict~ (see below)
+
+If you have the above directory structure, the generated =README.org= will be something like:
 : #+TITLE: Personal Wiki Index
 : 
 : My private memos.
@@ -57,7 +59,7 @@ If you have the above directory structure, it will be something like:
 : - [[./linux/filesystems.org][Filesystems (ext4, xfs, etc.)]]
 : <snip>
 
-The script has a Python dictionary (~categ_dict~) that converts category keys (ie, sub-directory names) to category text strings (eg, "python" to "Topics related to Python").
+The script has a Python dictionary (~categ_dict~) that converts category keys (ie, sub-directory names) to category text strings (eg, "python" to "Topics related to Python").  Update this dictionary for better Wiki experience.
 
 The script creates a link to an =.org= file.  The text shown for the link is derived from the title (ie, ~#+TITLE:~) meta data of the document.  (So, an .org file needs to have at least the title metadta ~#+TITLE:~)
 
