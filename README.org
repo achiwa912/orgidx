@@ -54,8 +54,7 @@ The script has a Python dictionary (~categ_dict~) that converts category keys (i
 
 The script creates a link to an =.org= file.  The text shown for the link is derived from the title (ie, ~#+TITLE:~) meta data of the document.  (So, an .org file needs to have at least the title metadta ~#+TITLE:~)
 
-The above =README.org= file will be rendered by github as:
-[[./images/example.png]]
+The above =README.org= file will be rendered by github like [[./example.org][this]].
 
 ** Usage
 
