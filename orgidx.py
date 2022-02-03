@@ -1,6 +1,7 @@
 import sys
 import os
 from collections import defaultdict
+import json
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -9,6 +10,25 @@ if __name__ == "__main__":
     if not os.path.isdir(basedir := sys.argv[1]):
         print(f"{basedir} is not a valid directory.")
         sys.exit(1)
+
+    # dir_name to category string
+    categ_dict = {
+        "distrib": "分散システム",
+        "storage": "ストレージ",
+        "virtual": "コンテナ・VM",
+        "linux": "Linux",
+        "etc": "未分類",
+    }
+    top_title = "#+TITLE: Personal Wiki Index"
+
+    # Read config.json
+    try:
+        with open("/".join([basedir, "config.json"])) as f:
+            config = json.load(f)
+            top_title = config.pop("#+TITLE", top_title)
+            categ_dict = config
+    except Exception:
+        print("Skip loading config.json")
 
     # Save README.org if exists
     readme_path = "/".join([basedir, "README.org"])
@@ -20,14 +40,6 @@ if __name__ == "__main__":
     if os.path.exists(readme_path):
         os.rename(readme_path, readme_bk_path)
 
-    # dir_name to category string
-    categ_dict = {
-        "distrib": "分散システム",
-        "storage": "ストレージ",
-        "virtual": "コンテナ・VM",
-        "linux": "Linux",
-        "etc": "未分類",
-    }
     # Create org_dic
     #   category_string: list of (full_path, title) tuples
     #   Note: multiple categories could share the same category_string
@@ -53,8 +65,8 @@ if __name__ == "__main__":
 
     # Generate README.org based on org_dic
     with open(readme_path, "w") as f:
-        print("#+TITLE: Personal Wiki Index", file=f)
-        print("\n個人用メモ。\n", file=f)
+        print(top_title, file=f)
+        print("\nPersonal memos\n", file=f)
         for categ_str, link_list in org_dic.items():
             print(f"** {categ_str}", file=f)
             print("", file=f)
