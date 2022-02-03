@@ -4,18 +4,18 @@ A helper utility to generate =README.org= that has links to all your .org files 
 
 ** The idea - your private Wiki pages
 
-I think you already know that you can create one or more private repositories in github.com for free.  Also, github.com renders *.org files nicely for preview.
+I think you already know that you can create one or more private repositories in github.com for free.  Also, github (/gitlab) renders *.org files nicely for preview.
 
-If you use ~emacs~ + ~org-mode~ to write memos, articles, etc., github would be a great place to host your personal Wiki pages.  All you need is to create a private repository and push your =*.org= files to it.  You can browse =*.org= documents in a neatly formatted manner.  Actually, this README is an =.org= file itself.  You can see how it works.
+If you use ~emacs~ + ~org-mode~ to write memos, articles, etc., github (/gitlab) would be a great place to host your personal Wiki pages.  All you need is to create a private repository and push your =*.org= files to it.  You can browse =*.org= documents in a neatly formatted manner.  Actually, this README is an =.org= file itself.  You can see how it works.
 
-But, one important piece is missing.  Navigating those =*.org= files on the github UI is clumsy.  I wish I had a (nicely formatted) top page (ie, README) that has links to =.org= files grouped by categories.  This is why, I created =orgidx.py=.
+But, one important piece is missing.  Navigating those =*.org= files on the github UI(/gitlab UI) is clumsy.  I wish I had a (nicely formatted) top page (ie, README) that has links to =.org= files grouped by categories.  This is why, I created =orgidx.py=.
 
-** Why you should have your private Wiki on github
+** Why you should have your private Wiki on github(/gitlab)
 
 - It is free
 - It is your private space
 - Can view/edit with multiple devices
-- github renders =.org= (, =.md=, etc.) files for you to view
+- github(/gitlab) renders =.org= (, =.md=, etc.) files for you to view
 
 ** How to organize *.org files
 
@@ -63,7 +63,7 @@ The script loads a config file (~config.json~) from the target directory.  It ha
 
 The script creates a link to an =.org= file.  The text shown for the link is derived from the title (ie, ~#+TITLE:~) meta data of the document.  (So, an .org file needs to have at least the title metadta ~#+TITLE:~)
 
-The above =README.org= file will be rendered by github like [[./example.org][this]].
+The above =README.org= file will be rendered by github like [[./example.org][this]].  Gitlab also renders it in a similar manner.
 
 ** Usage
 
