@@ -25,7 +25,7 @@ if __name__ == "__main__":
     try:
         with open("/".join([basedir, "config.json"])) as f:
             config = json.load(f)
-            top_title = config.pop("#+TITLE", top_title)
+            top_title = "#+TITLE: " + config.pop("#+TITLE", top_title)
             categ_dict = config
     except Exception:
         print("Skip loading config.json")
