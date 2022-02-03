@@ -11,6 +11,8 @@ if __name__ == "__main__":
         print(f"{basedir} is not a valid directory.")
         sys.exit(1)
 
+    basedir = basedir.rstrip("/")
+
     # dir_name to category string
     categ_dict = {
         "distrib": "分散システム",
