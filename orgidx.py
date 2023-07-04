@@ -21,6 +21,8 @@ if __name__ == "__main__":
         "linux": "Linux",
         "etc": "未分類",
     }
+    TITLE_HEAD = "#+TITLE: "
+    SUBTITLE_HEAD = "#+SUBTITLE: "
     top_title = "#+TITLE: Personal Wiki Index"
 
     # Read config.json
@@ -46,7 +48,7 @@ if __name__ == "__main__":
     #   category_string: list of (full_path, title) tuples
     #   Note: multiple categories could share the same category_string
     org_dic = defaultdict(list)
-    for (dpath, _, fnames) in os.walk(basedir):
+    for dpath, _, fnames in os.walk(basedir):
         for fname in fnames:
             if fname.endswith(".org"):
                 full_path = "/".join([dpath, fname])
@@ -57,13 +59,14 @@ if __name__ == "__main__":
                     pass
                 with open(full_path, "r") as f:
                     title = "No #+TITLE: header!"
+                    subtitles = []
                     for line in f:
-                        title_head = "#+TITLE: "
-                        if line.startswith(title_head):
-                            title = line[len(title_head) :].rstrip()
-                            break
+                        if line.startswith(TITLE_HEAD):
+                            title = line[len(TITLE_HEAD) :].rstrip()
+                        if line.startswith(SUBTITLE_HEAD):
+                            subtitles.append(line[len(SUBTITLE_HEAD) :].rstrip())
                 link_path = "." + full_path[len(basedir) :]
-                org_dic[categ_str].append((link_path, title))
+                org_dic[categ_str].append((link_path, (title, fname, subtitles)))
 
     # Generate README.org based on org_dic
     with open(readme_path, "w") as f:
@@ -73,5 +76,7 @@ if __name__ == "__main__":
             print(f"** {categ_str}", file=f)
             print("", file=f)
             for link in link_list:
-                print(f"- [[{link[0]}][{link[1]}]]", file=f)
+                print(f"- [[{link[0]}][{link[1][0]}]] ({link[1][1]})", file=f)
+                for subttl in link[1][2]:
+                    print(f"  - {subttl}", file=f)
             print("", file=f)

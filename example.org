@@ -2,14 +2,20 @@
 
 My private memos.
 
-** Topics related to Python
+** emacs
 
-- [[./python/list_comp.org][List comprehension memo]]
-- [[./python/async.org][Study on asyncio]]
-- [[./python/closure][Playing around with closures]]
+- [[./emacs/email.org][emacsでメールを読み書きする]] (email.org)
+  - mbsyncとnotmuchのセットアップ
+- [[./emacs/org-mode.org][org-mode tips]] (org-mode.org)
+  - org-mode cheat sheet
+- [[./emacs/emacs.org][emacs tips]] (emacs.org)
+  - emacs cheat sheet
 
-** Linux Hacks
+** コンテナ・VM
 
-- [[./linux/kernel.org][Linux kernel]]
-- [[./linux/boot.org][Linux boot sequence]]
-- [[./linux/filesystems.org][Filesystems (ext4, xfs, etc.)]]
+- [[./virtual/docker.org][Docker調査]] (docker.org)
+- [[./virtual/container.org][Container]] (container.org)
+- [[./virtual/utm_a9.org][M1 Mac上のUTMにAlmaLinux 9を入れる]] (utm_a9.org)
+  - ブログエントリーの元ネタ
+  - ホストのMac上のemacsからtrampでVMにあるファイルを使う設定
+

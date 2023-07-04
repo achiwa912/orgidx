@@ -42,26 +42,32 @@ will traverse sub-directories and =.org= files in them, and generate =README.org
 (*) Don't forget to upate ~config.json~ (see below)
 
 If you have the above directory structure, the generated =README.org= will be something like:
+
 : #+TITLE: Personal Wiki Index
 : 
 : My private memos.
 : 
-: ** Topics related to Python
+: ** emacs
 : 
-: - [[./python/list_comp.org][List comprehension memo]]
-: - [[./python/async.org][Study on asyncio]]
-: - [[./python/closure][Playing around with closures]]
+: - [[./emacs/email.org][emacsでメールを読み書きする]] (email.org)
+:   - mbsyncとnotmuchのセットアップ
+: - [[./emacs/org-mode.org][org-mode tips]] (org-mode.org)
+:   - org-mode cheat sheet
+: - [[./emacs/emacs.org][emacs tips]] (emacs.org)
+:   - emacs cheat sheet
 : 
-: ** Linux Hacks
+: ** コンテナ・VM
 : 
-: - [[./linux/kernel.org][Linux kernel]]
-: - [[./linux/boot.org][Linux boot sequence]]
-: - [[./linux/filesystems.org][Filesystems (ext4, xfs, etc.)]]
-: <snip>
+: - [[./virtual/docker.org][Docker調査]] (docker.org)
+: - [[./virtual/container.org][Container]] (container.org)
+: - [[./virtual/utm_a9.org][M1 Mac上のUTMにAlmaLinux 9を入れる]] (utm_a9.org)
+:   - ブログエントリーの元ネタ
+:   - ホストのMac上のemacsからtrampでVMにあるファイルを使う設定
+
 
 The script loads a config file (~config.json~) from the target directory.  It has a title string of the README.org (ie, the ~#+TITLE~ key) and a dictionary (ie, other keys) that converts category keys (ie, sub-directory names) to category text strings (eg, "python" to "Topics related to Python").  Update this dictionary for better Wiki experience.  Please see =config_sample.json= uploaded to this repository.
 
-The script creates a link to an =.org= file.  The text shown for the link is derived from the title (ie, ~#+TITLE:~) meta data of the document.  (So, an .org file needs to have at least the title metadta ~#+TITLE:~)
+The script creates a link to an =.org= file.  The text shown for the link is derived from the title (ie, ~#+TITLE:~) and subtitles (ie, ~#+SUBTITLE~) meta data of the document.  (So, an .org file needs to have at least the title metadta ~#+TITLE:~ and can have zero or more subtitle metadata ~#+SUBTITLE:~.
 
 The above =README.org= file will be rendered by github like [[./example.org][this]].  Gitlab also renders it in a similar manner.
 
@@ -71,12 +77,13 @@ The above =README.org= file will be rendered by github like [[./example.org][thi
 2. Create sub-directories whose names will be category keys
 3. Place =.org= files under the sub-directories
    - Make sure all =.org= files have ~#+TITLE:~ meta data
+   - You can put zero or more ~#+SUBTITLE~ meta adta if you'd like
 4. Create and save =config.json= in the top wiki directory
    - If you don't, that's fine.  The names of sub-directories will be categories as-is
 5. Install python 3.9 or later
 6. Put orgidx.py somewhere you like
-8. Run the script (eg, ~python orgidx.py /home/jon/wiki~)
-9. =README.org= will be generated under the top wiki directory
+7. Run the script (eg, ~python orgidx.py /home/jon/wiki~)
+8. =README.org= will be generated under the top wiki directory
 
 ** License
 
