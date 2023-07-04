@@ -71,6 +71,8 @@ The script creates a link to an =.org= file.  The text shown for the link is der
 
 The above =README.org= file will be rendered by github like [[./example.org][this]].  Gitlab also renders it in a similar manner.
 
+[[./wikiidx.jpg]]
+
 ** Usage
 
 1. Create the top wiki directory (eg, =/home/jon/wiki=)
